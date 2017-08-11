@@ -1,0 +1,31 @@
+﻿@model identifyWeb.Models.EventsAndUsers
+
+@{
+    ViewBag.Title = "Choose User";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (FormExtensions.BeginForm(Html, ViewBag.ReturnUrl, "Home"))
+{
+    <select name="user">
+        @foreach (var user in Model.usersList)
+        {
+
+        <option value="@user">@user</option>
+
+        }
+    </select>
+
+    <select name="eventType">
+        @foreach (var evtType in Model.eventtypeList)
+        {
+
+        <option value="@evtType.DataItemType">@evtType.DataItemType</option>
+
+        }
+    </select>
+    
+     <input type="submit" value="Ok"/>
+}
